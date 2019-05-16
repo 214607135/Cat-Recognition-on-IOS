@@ -1,55 +1,9 @@
 import glob
 import os
-import cv2
 import delFile
 from PIL import Image
 
-
-def rotate_270(imgae):
-    """
-    将图片旋转270度
-    """
-# 读取图像
-    im = Image.open(imgae)
-# im.show()
-# 指定逆时针旋转的角度
-    im_rotate = im.rotate(270)
-# im_rotate.show()
-    return im_rotate
-
-def createFile(path):
-    isExists = os.path.exists(path)
-    # 判断结果
-    if not isExists:
-    # 如果不存在则创建目录
-    # 创建目录操作函数
-        os.makedirs(path)
-        return True
-    else:
-    # 如果目录存在则不创建，并提示目录已存在
-        print('%s 目录已存在' % path)
-        return False
-
-
-def main():
-    path = 'D:/VideoPhotos/hongshi/'
-    createFile('D:/VideoPhotos/hongshi_rotate')
-    createFile('D:/VideoPhotos/hongshi_flip_horizontal')
-
-    dirs = os.listdir(path)
-    for dir in dirs:
-    # print(dir)
-        createFile('D:/VideoPhotos/hongshi_rotate/' + dir)
-        createFile('D:/VideoPhotos/hongshi_flip_horizontal/' + dir)
-
-        images = glob.glob(path + dir + r"\*.jpg")
-        for image in images:
-            image_name = image[image.find("\\"):]
-            print(image_name)
-            rotate_270(image).save('D:/VideoPhotos/hongshi_rotate/' 
-            + dir +image_name)
-
-def imgresize(path,outdir,width,height):
+def img_resize(path,outdir,width,height):
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     for root , dirs, files in os.walk(path):
@@ -61,12 +15,22 @@ def imgresize(path,outdir,width,height):
         # resize image to 640*640
             im_resized = im.resize((width, height), Image.ANTIALIAS)
             im_resized.save(os.path.join(outdir,file),'jpeg',quality=90)
-        
 
-# def img_resize(img_file, path_save, width,height):
-#     img = Image.open(img_file)
-#     new_image = img.resize((width,height),Image.BILINEAR)
-#     new_image.save(os.path.join(path_save,os.path.basename(img_file)))
+def img_rotate(path,outdir,degree):
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    for root , dirs, files in os.walk(path):
+        for file in files:
+            im = Image.open(path+file)
+            f,e = os.path.splitext(path+file)
+            im_rotate1 = im.rotate(degree)
+            im_rotate2 = im_rotate1.rotate(degree)
+            im_rotate3 = im_rotate2.rotate(degree)
+            im_rotate1.save(f + 'rotated1.jpg','jpeg',quality=90)
+            im_rotate2.save(f + 'rotated2.jpg','jpeg',quality=90)
+            im_rotate3.save(f + 'rotated3.jpg','jpeg',quality=90)
+            
+
 
 if __name__ == '__main__':
     for keyword in ['Siamese cat', 'Scottish Fold cat','Abyssinian cat',
@@ -82,7 +46,11 @@ if __name__ == '__main__':
         print(pathlist)
         print(outdirlist)
         print(delFile.count(pathlist[0]))
-        imgresize(pathlist[0],outdirlist[0],640,640)
+        img_resize(pathlist[0],outdirlist[0],640,640)
+
+
+
+
     # path = 'D:/2019 Summer Term/Project/test1/Abyssinian cat/'
     # outdir = 'D:/2019 Summer Term/Project/test1/Abyssinian cat/test/'
     
