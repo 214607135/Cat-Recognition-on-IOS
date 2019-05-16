@@ -22,11 +22,11 @@ def delNonjpg(path):
     print(count)
 
 def count(path):
-    pngCount =0
-    jpgCount =0
+    pngCount  =0
+    jpgCount  =0
     jpegCount =0
-    JPGCount =0
-    gifCount =0
+    JPGCount  =0
+    gifCount  =0
     for root , dirs, files in os.walk(path):
         for name in files:
             if name.endswith(".png"):
@@ -74,7 +74,7 @@ def dupliremove(path):
     time_last = end - start
     print ('Total Files：',total_file)
     print ('Delete Files：',total_delete)
-    #print ('Time ：',time_last,'秒')
+    #print ('Time ：',time_last,'s')
 
 if __name__ == "__main__":
     path = 'D:/2019 Summer Term/Project/test1/Abyssinian cat'

@@ -1,6 +1,7 @@
 import glob
 import os
-
+import cv2
+import delFile
 from PIL import Image
 
 
@@ -47,20 +48,53 @@ def main():
             print(image_name)
             rotate_270(image).save('D:/VideoPhotos/hongshi_rotate/' 
             + dir +image_name)
-            flip_horizontal(image).save('D:/VideoPhotos/hongshi_flip_horizontal/'
-            + dir + image_name)
 
+def imgresize(path,outdir,width,height):
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    for root , dirs, files in os.walk(path):
+        for file in files:
+            im = Image.open(path+file)
+            if not im.mode == 'RGB':
+                im = im.convert('RGB')
+        # im.show()
+        # resize image to 640*640
+            im_resized = im.resize((width, height), Image.ANTIALIAS)
+            im_resized.save(os.path.join(outdir,file),'jpeg',quality=90)
+        
+
+# def img_resize(img_file, path_save, width,height):
+#     img = Image.open(img_file)
+#     new_image = img.resize((width,height),Image.BILINEAR)
+#     new_image.save(os.path.join(path_save,os.path.basename(img_file)))
 
 if __name__ == '__main__':
-    path = 'D:/2019 Summer Term/Project/test1/Abyssinian cat'
-    dirs = os.listdir(path)
-    for dir in dirs:
-        print(dir)
+    for keyword in ['Siamese cat', 'Scottish Fold cat','Abyssinian cat',
+                'Bengal cat','Bombay cat','Birman cat','British Shorthair cat',
+                'Maine Coon cat','Persian cat','Egyptian Mau cat',
+                'Sphynx cat','Ragdoll cat','Russian Blue cat','American Shorthair cat',
+                'Exotic cat','Siberian cat','American Bobtail cat'
+    ]:
+        path = {'D:/2019 Summer Term/Project/test1/{}/'.format(keyword)}
+        outdir = {'D:/2019 Summer Term/Project/test1/{}/test/'.format(keyword)}
+        pathlist = [i for i in path]
+        outdirlist = [j for j in outdir]
+        print(pathlist)
+        print(outdirlist)
+        print(delFile.count(pathlist[0]))
+        imgresize(pathlist[0],outdirlist[0],640,640)
+    # path = 'D:/2019 Summer Term/Project/test1/Abyssinian cat/'
+    # outdir = 'D:/2019 Summer Term/Project/test1/Abyssinian cat/test/'
     
-    def imgresize(image):
-        im = Image.open(image)
-        #im.show()
- 
-        #resize image to 640*640
-        im_resized = im.resize((640, 640))
-        im_resized.save()
+
+        
+        
+
+    # print(path)
+    # print(outdir)
+    # for i in range(0,16):
+    #     imgresize(pathlist[i],outdirlist[i],640,640)
+
+    # dirs = os.listdir(path)
+    # for dir in dirs:
+    #     print(dir)
