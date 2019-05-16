@@ -65,6 +65,7 @@ def dupliremove(path):
                     all_size[size][1]=getmd5(all_size[size][0])
                 if new_md5 in all_size[size]:
                     print ('Delete',file)
+                    os.remove(os.path.join(path, file))
                     total_delete += 1
                 else:
                     all_size[size].append(new_md5)
@@ -80,5 +81,5 @@ if __name__ == "__main__":
     path = 'D:/2019 Summer Term/Project/test1/Abyssinian cat'
     #delNonjpg(path)
     #count(path)
-    #dupliremove(path)
+    dupliremove(path)
     

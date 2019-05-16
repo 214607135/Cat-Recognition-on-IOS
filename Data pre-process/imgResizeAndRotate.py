@@ -9,12 +9,13 @@ def img_resize(path,outdir,width,height):
     for root , dirs, files in os.walk(path):
         for file in files:
             im = Image.open(path+file)
+            f,e = os.path.splitext(path+file)
             if not im.mode == 'RGB':
                 im = im.convert('RGB')
         # im.show()
         # resize image to 640*640
             im_resized = im.resize((width, height), Image.ANTIALIAS)
-            im_resized.save(os.path.join(outdir,file),'jpeg',quality=90)
+            im_resized.save(f +'.jpg','jpeg',quality=90)
 
 def img_rotate(path,outdir,degree):
     if not os.path.exists(outdir):
