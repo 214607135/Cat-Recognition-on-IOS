@@ -16,6 +16,6 @@ def rename(path):
             '_' + str(i).zfill(4) + '.jpg')                        
             os.rename(src, dst)
 
-if __name__ == "__main__":
-    path =  'D:/2019 Summer Term/Project/test3/'
-    rename(path)
+# if __name__ == "__main__":
+#     path =  'D:/2019 Summer Term/Project/test3/'
+#     rename(path)

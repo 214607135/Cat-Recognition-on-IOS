@@ -77,9 +77,9 @@ def dupliremove(path):
     print ('Delete Files：',total_delete)
     #print ('Time ：',time_last,'s')
 
-if __name__ == "__main__":
-    path = 'D:/2019 Summer Term/Project/test1/Abyssinian cat'
-    #delNonjpg(path)
-    #count(path)
-    dupliremove(path)
+# if __name__ == "__main__":
+#     path = 'D:/2019 Summer Term/Project/test1/Abyssinian cat'
+#     #delNonjpg(path)
+#     #count(path)
+#     dupliremove(path)
     

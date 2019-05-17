@@ -17,21 +17,22 @@ if __name__ == '__main__':
         outdir = {'D:/2019 Summer Term/Project/test2/{}/test/'.format(keyword)}
         pathlist = [i for i in path]
         outdirlist = [j for j in outdir]
-        path1 = 'D:/2019 Summer Term/Project/test1/rotatetest/'
-        outdir1 = 'D:/2019 Summer Term/Project/test1/rotatetest/test/'
-        imgResizeAndRotate.img_resize(path1,path1,640,640)
-        #delFile.delNonjpg(pathlist[0])
-        #delFile.count(pathlist[0])
-        #delFile.dupliremove(pathlist[0])
-    #     print(pathlist)
-    #     print(outdirlist)
-    #     print(delFile.count(pathlist[0]))
-    #     imgResizeAndRotate.img_resize(pathlist[0],outdirlist[0],640,640)
-        # imgResizeAndRotate.img_rotate(path1,path1,90)
+    
+
+        # delFile.delNonjpg(pathlist[0])
+        # delFile.count(pathlist[0])
+        # delFile.dupliremove(pathlist[0])
+        # imgResizeAndRotate.img_resize(pathlist[0],pathlist[0],640,640)
+        # #imgResizeAndRotate.img_resize(path1,path1,640,640)
+        # imgResizeAndRotate.img_rotate(pathlist[0],pathlist[0],90)
         
         
-        # for root , dirs, files in os.walk(path1):
-        #     for file in files:
-        #         im = Image.open(path1+file)
-        #         f,e = os.path.splitext(path1+file)
-        #         print(file)
+        
+    path1 = 'D:/2019 Summer Term/Project/test2/'
+    path2 = 'D:/2019 Summer Term/Project/Final DataSet/TrainSet2/'
+    outdir1 = 'D:/2019 Summer Term/Project/Final DataSet/TestSet/'
+    outdir2 = 'D:/2019 Summer Term/Project/Final DataSet/TrainSet1/'
+
+    
+    # rename.rename(path1)
+    shuffle.shuffle(path1,outdir1,0.3)
