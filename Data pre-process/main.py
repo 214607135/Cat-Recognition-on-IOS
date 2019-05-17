@@ -2,6 +2,8 @@ from PIL import Image
 import os
 import imgResizeAndRotate
 import delFile
+import rename
+import shuffle
 
 
 if __name__ == '__main__':
@@ -15,10 +17,11 @@ if __name__ == '__main__':
         outdir = {'D:/2019 Summer Term/Project/test2/{}/test/'.format(keyword)}
         pathlist = [i for i in path]
         outdirlist = [j for j in outdir]
-        path1 = 'D:/2019 Summer Term/Project/test2/rotatetest/'
-        outdir1 = 'D:/2019 Summer Term/Project/test2/rotatetest/test/'
+        path1 = 'D:/2019 Summer Term/Project/test1/rotatetest/'
+        outdir1 = 'D:/2019 Summer Term/Project/test1/rotatetest/test/'
+        imgResizeAndRotate.img_resize(path1,path1,640,640)
         #delFile.delNonjpg(pathlist[0])
-        delFile.count(pathlist[0])
+        #delFile.count(pathlist[0])
         #delFile.dupliremove(pathlist[0])
     #     print(pathlist)
     #     print(outdirlist)
