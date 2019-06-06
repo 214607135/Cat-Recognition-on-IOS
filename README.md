@@ -49,58 +49,58 @@ Assume we get ready for the environment:) then we can follow the steps to train 
 
 4. Export the inference_graph
  
-If you just want to test the performance of your model, you can just type the command in that tutorial. But if you want to place it in the google cloud platform and build an mobile app, you have to type
+- If you just want to test the performance of your model, you can just type the command in that tutorial. But if you want to place it in the google cloud platform and build an mobile app, you have to type
   ```python
   python export_inference_graph.py --input_type encoded_image_string_tensor --pipeline_config_path YOUR_TRAINING_FOLDER/pipeline.config --trained_checkpoint_prefix YOUR_TRAINING_FOLDER/model.ckpt-XXXX --output_directory inference_graph/
   ```
 5. Test your model locally
 
-It's easy to test the performance of our model locally. Simply use the **_object_detection_tutorial.ipynb_** file in **object_detection** folder, delete the part that download the model online since we are gonna use our own model.
+- It's easy to test the performance of our model locally. Simply use the **_object_detection_tutorial.ipynb_** file in **object_detection** folder, delete the part that download the model online since we are gonna use our own model.
  
 ### Google Cloud Platform and Firebase
 We build our mobile app by placing our model on google server.
 
 1. **Google Cloud Platform init**
 
-Create a project in Google Cloud Platform, then create a bucket and create a folder called **model** in it. Finally put your **saved_model.pb** file in it.
+- Create a project in Google Cloud Platform, then create a bucket and create a folder called **model** in it. Finally put your **saved_model.pb** file in it.
 
 2. **Deploy model**
 
-Follow the instructions [here](https://cloud.google.com/storage/docs/gsutil_install#mac) to init your gcloud command.
+- Follow the instructions [here](https://cloud.google.com/storage/docs/gsutil_install#mac) to init your gcloud command.
 
-Type code: ``` gcloud ml-engine models create MODEL_NAME(whatever) ```
+- Type code: ``` gcloud ml-engine models create MODEL_NAME(whatever) ```
 
-Show the models list: ``` gcloud ml-engine models list ```
+- Show the models list: ``` gcloud ml-engine models list ```
 
-Type code: ``` gcloud ml-engine versions create v1 --model=MODEL_NAME --origin=gs://BUCKET_NAME/model --runtime-version=1.12(tensorflow_running_version) ```
+- Type code: ``` gcloud ml-engine versions create v1 --model=MODEL_NAME --origin=gs://BUCKET_NAME/model --runtime-version=1.12(tensorflow_running_version) ```
 
 3. **Open Firebase**
 
-Open Firebase and create a project, which can be linked to your google cloud platform.
+- Open Firebase and create a project, which can be linked to your google cloud platform.
 
 4. **Deploy Cloud Function**
 
-Install [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md)
+- Install [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md)
 
-Install [Firebase CLI](https://firebase.google.com/docs/cli/)
+- Install [Firebase CLI](https://firebase.google.com/docs/cli/)
 
-Download **firebase** folder from this project
+- Download **firebase** folder from this project
 
-Run ``` npm install ``` in **firebase/functions/** directory
+- Run ``` npm install ``` in **firebase/functions/** directory
 
-Update **name** in **params** in index.js: 
+- Update **name** in **params** in index.js: 
 ```python
 name: 'projects/your-project-name/models/your-model-name'
 ```
 
-Run ``` firebase deploy --only functions ```
+- Run ``` firebase deploy --only functions ```
 
-If succeed, you can see there is a function in your Firebase.
+- If succeed, you can see there is a function in your Firebase.
 
 5. **Test Firebase**
 
-Create a folder called **images** in storage in Firebase
+- Create a folder called **images** in storage in Firebase
 
-upload an image to it. Then check if the prediction is shown in Firebase database. You can also check the function log to see why it's not successful.
+- upload an image to it. Then check if the prediction is shown in Firebase database. You can also check the function log to see why it's not successful.
 [Firebase database](Read_me_pictures/Firebase database.png)
 
