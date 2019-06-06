@@ -1,5 +1,9 @@
 # Cat-Recognition-on-IOS
 
+# Result shown
+We successfully build an IOS app, which can detect 17 kinds of different cat breeds with about 50% accuracy.
+[App UI](Read_me_pictures/App UI.png)
+
 # Usage notice
 
 The "object_detection" file is all copied from https://github.com/tensorflow/models, please follow the steps in it to learn how to implement this project.
@@ -80,4 +84,23 @@ Install [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md)
 
 Install [Firebase CLI](https://firebase.google.com/docs/cli/)
 
-Download
+Download **firebase** folder from this project
+
+Run ``` npm install ``` in **firebase/functions/** directory
+
+Update **name** in **params** in index.js: 
+```python
+name: 'projects/your-project-name/models/your-model-name'
+```
+
+Run ``` firebase deploy --only functions ```
+
+If succeed, you can see there is a function in your Firebase.
+
+5. **Test Firebase**
+
+Create a folder called **images** in storage in Firebase
+
+upload an image to it. Then check if the prediction is shown in Firebase database. You can also check the function log to see why it's not successful.
+[Firebase database](Read_me_pictures/Firebase database.png)
+
