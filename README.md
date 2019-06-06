@@ -40,6 +40,17 @@ Assume we get ready for the environment:) then we can follow the steps to train 
   ```python
   python export_inference_graph.py --input_type encoded_image_string_tensor --pipeline_config_path YOUR_TRAINING_FOLDER/pipeline.config --trained_checkpoint_prefix YOUR_TRAINING_FOLDER/model.ckpt-XXXX --output_directory inference_graph/
   ```
+5. Test your model locally
+ It's easy to test the performance of our model locally. Simply use the **_object_detection_tutorial.ipynb_** file in **object_detection** folder, delete the part that download the model online since we are gonna use our own model.
+ 
+### Google Cloud Platform and Firebase
+We build our mobile app by placing our model on google server.
 
+1. Google Cloud Platform init
+ Create a project in Google Cloud Platform, then create a bucket and create a folder called **model** in it. Finally put your **saved_model.pb** file in it.
+
+2. Deploy model
+ Follow the instructions [here](https://cloud.google.com/storage/docs/gsutil_install#mac) to init your gcloud command.
+ Type code ``` gcloud ml-engine models create MODEL_NAME ```
 
 
