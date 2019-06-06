@@ -16,7 +16,7 @@ Our final exported model in TestModel folder is trained with 25k steps, and the 
 
 Although there are a lot of similar explaination of model training, I will still try to explain it again, which can also help me to revise the workflow of it. Hope it help :)
 
-### Data collecting and labelling
+# Data collecting and labelling
 
 There are some python files in our **data pre-process** folder, and their function is fully described by their names.
 All you need to do is using these files to crawl your favourite data and pre-process them (if you want to train your own model)
@@ -29,7 +29,7 @@ After labelling, we used xml_to_csv and csv_to_TFRecord, which convert all label
 
 Then **change the label name in csv_to_TFRecord.py file to match yours** before running csv_to_TFRecord by typing the command, which is [here](https://towardsdatascience.com/creating-your-own-object-detector-ad69dda69c85).
 
-### Model training
+# Model training
 
 This is a large part. A lot of preparations need to be done before training the model and it is the most time-consuming task.
 
@@ -43,9 +43,9 @@ Assume we get ready for the environment:) then we can follow the steps to train 
 
 3. Use **_model_main.py_** or **_train.py_** to train the model.
   
-  **_model_main.py_:** It is the combination of _train.py_ and _eval.py_, but it will not show the every step of your training process, so you have to use tensorboard to see what happens.
+  - **_model_main.py_:** It is the combination of _train.py_ and _eval.py_, but it will not show the every step of your training process, so you have to use tensorboard to see what happens.
   
-  **_train.py_:** It will show every step's detail loss, but it do not contain evaluate process, so you have to open one more terminal and use **_eval.py_**.(But I cannot do that because of the limitation of my GPU)
+  - **_train.py_:** It will show every step's detail loss, but it do not contain evaluate process, so you have to open one more terminal and use **_eval.py_**.(But I cannot do that because of the limitation of my GPU)
 
 4. Export the inference_graph
  
@@ -57,7 +57,7 @@ Assume we get ready for the environment:) then we can follow the steps to train 
 
 - It's easy to test the performance of our model locally. Simply use the **_object_detection_tutorial.ipynb_** file in **object_detection** folder, delete the part that download the model online since we are gonna use our own model.
  
-### Google Cloud Platform and Firebase
+# Google Cloud Platform and Firebase
 We build our mobile app by placing our model on google server.
 
 1. **Google Cloud Platform init**
@@ -104,4 +104,5 @@ name: 'projects/your-project-name/models/your-model-name'
 - upload an image to it. Then check if the prediction is shown in Firebase database. You can also check the function log to see why it's not successful.
 ![Firebase database](https://github.com/214607135/Cat-Recognition-on-IOS/blob/master/Read_me_pictures/Firebase%20database.png)
 
+----------------------------------------------------------------------------------------------------------------------------
 **Thanks for reading ：）**
