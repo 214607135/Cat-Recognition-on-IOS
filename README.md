@@ -104,5 +104,4 @@ name: 'projects/your-project-name/models/your-model-name'
 - upload an image to it. Then check if the prediction is shown in Firebase database. You can also check the function log to see why it's not successful.
 ![Firebase database](https://github.com/214607135/Cat-Recognition-on-IOS/blob/master/Read_me_pictures/Firebase%20database.png)
 
-Thanks for reading?
-----------------------------------------------------------------------------------------------------------------------------
+**Thanks for reading ：）**
