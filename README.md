@@ -2,7 +2,7 @@
 
 # Result shown
 We successfully build an IOS app, which can detect 17 kinds of different cat breeds with about 50% accuracy.
-[App UI](Read_me_pictures/App UI.png)
+![App UI](https://github.com/214607135/Cat-Recognition-on-IOS/blob/master/Read_me_pictures/App%20UI.png)
 
 # Usage notice
 
@@ -102,5 +102,5 @@ name: 'projects/your-project-name/models/your-model-name'
 - Create a folder called **images** in storage in Firebase
 
 - upload an image to it. Then check if the prediction is shown in Firebase database. You can also check the function log to see why it's not successful.
-[Firebase database](Read_me_pictures/Firebase database.png)
+![Firebase database](https://github.com/214607135/Cat-Recognition-on-IOS/blob/master/Read_me_pictures/Firebase%20database.png)
 
