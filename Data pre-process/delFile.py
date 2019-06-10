@@ -1,3 +1,7 @@
+"""
+    Author:Yiwen Gao
+
+"""
 import os
 import hashlib
 from time import clock as now

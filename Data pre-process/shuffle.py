@@ -1,3 +1,7 @@
+"""
+    Author:Yiwen Gao
+
+"""
 import os, random, shutil
 
 def shuffle(filedir,outdir,ratio):

@@ -1,3 +1,7 @@
+"""
+    Author:Yiwen Gao
+
+"""
 from icrawler.builtin import GoogleImageCrawler
 from datetime import date
 from icrawler.builtin import FlickrImageCrawler
